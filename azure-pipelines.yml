@@ -42,7 +42,7 @@ steps:
     containerRegistry: 'Docker connection'
     repository: 'gamediatebackend'
     command: 'buildAndPush'
-    Dockerfile: '**/Dockerfile'
+    Dockerfile: '*/Dockerfile'
 - task: Docker@2
   inputs:
     containerRegistry: 'Docker connection'
