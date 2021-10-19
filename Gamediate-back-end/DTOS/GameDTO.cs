@@ -1,12 +1,16 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+
 
 namespace Gamediate_back_end.DTOS
 {
     public class GameDTO
     {
+        [Key]
+        [Required]
         public int ID { get; set; }
         public string Title { get; set; }
         public string Genre { get; set; }

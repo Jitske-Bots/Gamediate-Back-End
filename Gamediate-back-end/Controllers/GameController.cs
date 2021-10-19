@@ -9,7 +9,9 @@ using Gamediate_back_end.BLL;
 
 namespace Gamediate_back_end.Controllers
 {
-    public class GameController : Controller
+    [Route("[controller]")]
+    [ApiController]
+    public class GameController : ControllerBase
     {
         private GameBLL gameBLL;
         private GameRepo gameRepo;
@@ -18,13 +20,14 @@ namespace Gamediate_back_end.Controllers
             this.gameRepo = gameRepo;
             this.gameBLL = new GameBLL(gameRepo);
 
+
         }
         [HttpGet]
         [ActionName("gameOverview")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public IActionResult GetAllQuests()
+        public IActionResult GetAll()
         {
             return Ok(gameBLL.GetAll());
         }
