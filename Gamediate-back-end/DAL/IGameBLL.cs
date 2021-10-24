@@ -8,6 +8,6 @@ namespace Gamediate_back_end.DAL
 {
     public interface IGameBLL
     {
-        List<GameDTO> GetAll();
+        IEnumerable<GameDTO> GetAll();
     }
 }

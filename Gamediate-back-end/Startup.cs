@@ -10,6 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Gamediate_back_end.DAL;
 using Microsoft.EntityFrameworkCore;
+using Gamediate_back_end.BLL;
 
 namespace Gamediate_back_end
 {
@@ -38,6 +39,8 @@ namespace Gamediate_back_end
                 options.UseSqlServer(Configuration.GetConnectionString("Default"));
             });
             services.AddScoped<IGameBLL, GameRepo>();
+            services.AddScoped<GameBLL>();
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -6,22 +6,24 @@ using System.Linq;
 using System.Threading.Tasks;
 using Gamediate_back_end.DAL;
 using Gamediate_back_end.BLL;
+using AutoMapper;
+using Gamediate_back_end.DTOS;
+using Gamediate_back_end.Models;
 
 namespace Gamediate_back_end.Controllers
 {
-    [Route("[controller]")]
+    [Route("games")]
     [ApiController]
     public class GameController : ControllerBase
     {
-        private GameBLL gameBLL;
-        private GameRepo gameRepo;
-        public GameController(GameRepo gameRepo)
+        private readonly IMapper imapper;
+        private readonly GameBLL gameBLL;
+        public GameController(IMapper imapper, GameBLL gameBLL)
         {
-            this.gameRepo = gameRepo;
-            this.gameBLL = new GameBLL(gameRepo);
-
-
+            this.gameBLL = gameBLL;
+            this.imapper = imapper;
         }
+
         [HttpGet]
         [ActionName("gameOverview")]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -29,7 +31,8 @@ namespace Gamediate_back_end.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult GetAll()
         {
-            return Ok(gameBLL.GetAll());
+            var games = gameBLL.GetAll();
+            return Ok(imapper.Map<ICollection<GameDTO>>(games));
         }
     }
 }
