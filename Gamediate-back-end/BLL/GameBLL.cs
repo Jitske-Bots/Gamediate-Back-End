@@ -17,7 +17,7 @@ namespace Gamediate_back_end.BLL
             this.iGameBLL = igameBLL;
 
         }
-        public List<Game> GetAll()
+        public IEnumerable<Game> GetAll()
         {
             List<Game> allGames = new List<Game>();
             foreach(GameDTO gameDTO in iGameBLL.GetAll())
