@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace Gamediate_back_end.DAL
 {
@@ -13,11 +14,12 @@ namespace Gamediate_back_end.DAL
         {
             this.gameContext = gameContext;
         }
-        public List<GameDTO> GetAll()
+        public IEnumerable<GameDTO> GetAll()
         {
-            List<GameDTO> gameList = gameContext.Games.ToList();
-            return gameList;
+            IEnumerable<GameDTO> gameList = new List<GameDTO>();
+            gameList = gameContext.Games;
 
+            return gameList;
 
         }
     }
