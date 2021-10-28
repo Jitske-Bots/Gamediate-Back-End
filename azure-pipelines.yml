@@ -42,8 +42,8 @@ steps:
     containerRegistry: 'Docker connection'
     repository: 'gamediatebackend'
     command: 'buildAndPush'
-    Dockerfile: '$(Build.SourcesDirectory)/Gamediate-Back-End/Dockerfile'
-    buildContext: '$(Build.SourcesDirectory)/Gamediate-Back-End/'
+    Dockerfile: '$(Build.SourcesDirectory)/Gamediate-back-end/Dockerfile'
+    buildContext: '$(Build.SourcesDirectory)/Gamediate-back-end/'
 
 - task: Docker@2
   inputs:
