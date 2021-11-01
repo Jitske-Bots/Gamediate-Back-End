@@ -43,7 +43,8 @@ steps:
     repository: 'gamediatebackend'
     command: 'buildAndPush'
     Dockerfile: '$(Build.SourcesDirectory)/Gamediate-back-end/Dockerfile'
-    buildContext: '$(Build.SourcesDirectory)/Gamediate-back-end/'
+    buildContext: '$(Build.Repository.LocalPath)'
+
 
 - task: Docker@2
   inputs:
