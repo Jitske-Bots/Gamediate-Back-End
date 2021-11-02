@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Gamediate_back_end.DAL
 {
-    public class GameRepo : IGameBLL
+    public class GameRepo : IGameRepo
     {
         private readonly GameContext gameContext;
         public GameRepo(GameContext gameContext)

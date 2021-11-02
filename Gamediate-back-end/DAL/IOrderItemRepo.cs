@@ -6,8 +6,9 @@ using Gamediate_back_end.DTOS;
 
 namespace Gamediate_back_end.DAL
 {
-    public interface IGameBLL
+    public interface IOrderItemRepo
     {
-        IEnumerable<GameDTO> GetAll();
+        IEnumerable<OrderItemDTO> GetAll();
+        void Add(OrderItemDTO orderItemDTO);
     }
 }
