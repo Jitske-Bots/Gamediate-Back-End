@@ -10,17 +10,9 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 5.0.x
-    - name: Restore dependencies
-      run: dotnet restore ./TaskService/
-    - name: Build
-      run: dotnet build TaskService/Gamediate-back-end.csproj --no-restore
       
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v1
@@ -40,5 +32,5 @@ jobs:
       with:
         context: 'TaskService'
         push: true
-        tags: ${{ secrets.DOCKER_USERNAME }}/gamediatefrontend:latest
+        tags: ${{ secrets.DOCKER_USERNAME }}/gamediatebackend:latest
 
