@@ -6,10 +6,8 @@ using Gamediate_back_end.DTOS;
 
 namespace Gamediate_back_end.DAL
 {
-    public interface IOrderRepo
+    public interface IGameDAL
     {
-        IEnumerable<OrderDTO> GetAll();
-        void Add(OrderDTO orderDTO);
-        
+        IEnumerable<GameDTO> GetAll();
     }
 }

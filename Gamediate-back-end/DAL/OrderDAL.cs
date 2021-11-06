@@ -6,11 +6,11 @@ using Gamediate_back_end.DTOS;
 
 namespace Gamediate_back_end.DAL
 {
-    public class OrderRepo : IOrderRepo
+    public class OrderDAL : IOrderDAL
     {
         private readonly OrderContext orderContext;
 
-        public OrderRepo(OrderContext orderContext)
+        public OrderDAL(OrderContext orderContext)
         {
             this.orderContext = orderContext;
         }

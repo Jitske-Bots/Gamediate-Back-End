@@ -10,8 +10,8 @@ namespace Gamediate_back_end.BLL
 {
     public class OrderItemBLL
     {
-        private readonly IOrderItemRepo iOrderItemRepo;
-        public OrderItemBLL(IOrderItemRepo iOrderItemRepo)
+        private readonly IOrderItemDAL iOrderItemRepo;
+        public OrderItemBLL(IOrderItemDAL iOrderItemRepo)
         {
             this.iOrderItemRepo = iOrderItemRepo;
         }

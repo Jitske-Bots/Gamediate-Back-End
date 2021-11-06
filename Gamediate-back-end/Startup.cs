@@ -39,7 +39,7 @@ namespace Gamediate_back_end
                 options.UseSqlServer(Configuration.GetConnectionString("Default"));
             });
             //addScoped creates an instance
-            services.AddScoped<IGameRepo, GameRepo>();
+            services.AddScoped<IGameDAL, GameDAL>();
             services.AddScoped<GameBLL>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }

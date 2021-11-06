@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Gamediate_back_end.DAL
 {
-    public class OrderItemRepo : IOrderItemRepo
+    public class OrderItemDAL : IOrderItemDAL
     {
         private readonly OrderItemContext orderItemContext;
-        public OrderItemRepo(OrderItemContext orderItemContext)
+        public OrderItemDAL(OrderItemContext orderItemContext)
         {
             this.orderItemContext = orderItemContext;
         }

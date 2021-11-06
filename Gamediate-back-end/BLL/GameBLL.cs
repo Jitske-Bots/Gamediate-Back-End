@@ -11,8 +11,8 @@ namespace Gamediate_back_end.BLL
 {
     public class GameBLL
     {
-        private readonly IGameRepo iGameBLL;
-        public GameBLL(IGameRepo igameBLL)
+        private readonly IGameDAL iGameBLL;
+        public GameBLL(IGameDAL igameBLL)
         {
             this.iGameBLL = igameBLL;
         }

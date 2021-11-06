@@ -7,10 +7,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Gamediate_back_end.DAL
 {
-    public class GameRepo : IGameRepo
+    public class GameDAL : IGameDAL
     {
         private readonly GameContext gameContext;
-        public GameRepo(GameContext gameContext)
+        public GameDAL(GameContext gameContext)
         {
             this.gameContext = gameContext;
         }
