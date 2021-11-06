@@ -11,7 +11,7 @@ namespace Gamediate_back_end.Models
     {
         [Key]
         [Required]
-        public int ID { get; set; }
+        public int ID { get; }
         public string Title { get; set; }
         public string Genre { get; set; }
         public string Description { get; set;  }
