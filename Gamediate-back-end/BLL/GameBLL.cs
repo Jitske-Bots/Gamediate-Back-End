@@ -5,17 +5,16 @@ using System.Threading.Tasks;
 using Gamediate_back_end.DTOS;
 using Gamediate_back_end.DAL;
 using Gamediate_back_end.Models;
+using AutoMapper;
 
 namespace Gamediate_back_end.BLL
 {
     public class GameBLL
     {
-        IGameBLL iGameBLL;
-
-        public GameBLL(IGameBLL igameBLL)
+        private readonly IGameDAL iGameBLL;
+        public GameBLL(IGameDAL igameBLL)
         {
             this.iGameBLL = igameBLL;
-
         }
         public IEnumerable<Game> GetAll()
         {
