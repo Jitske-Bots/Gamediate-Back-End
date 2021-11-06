@@ -31,7 +31,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./
-          file: ./Dockerfile
+          file: ./Gamediate-back-end/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/gamediatebackend:latest
 
