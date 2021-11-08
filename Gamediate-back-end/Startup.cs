@@ -56,6 +56,7 @@ namespace Gamediate_back_end
 
             app.UseRouting();
             app.UseCors("CorsDevelopment");
+            app.UseCors(options => options.AllowAnyOrigin());
 
             app.UseAuthorization();
 
