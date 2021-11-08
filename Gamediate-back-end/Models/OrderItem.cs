@@ -13,7 +13,7 @@ namespace Gamediate_back_end.Models
         public int ID { get; set; }
         public int OrderID { get; set; }
         public int GameID { get; set; }
-        public Decimal Price { get; set; }
+        public decimal Price { get; set; }
         public OrderItem()
         {
 
