@@ -13,6 +13,6 @@ namespace Gamediate_back_end.DTOS
         public int ID { get; set; }
         public int AccountID { get; set; }
         public DateTime OrderDate { get; set; }
-        public Decimal TotalAmount { get; set; }
+        public decimal TotalAmount { get; set; }
     }
 }

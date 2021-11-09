@@ -8,8 +8,8 @@ namespace Gamediate_back_end.DAL
 {
     public class OrderItemDAL : IOrderItemDAL
     {
-        private readonly OrderItemContext orderItemContext;
-        public OrderItemDAL(OrderItemContext orderItemContext)
+        private readonly GameContext orderItemContext;
+        public OrderItemDAL(GameContext orderItemContext)
         {
             this.orderItemContext = orderItemContext;
         }

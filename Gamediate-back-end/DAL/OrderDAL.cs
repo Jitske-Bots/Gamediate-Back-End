@@ -8,9 +8,9 @@ namespace Gamediate_back_end.DAL
 {
     public class OrderDAL : IOrderDAL
     {
-        private readonly OrderContext orderContext;
+        private readonly GameContext orderContext;
 
-        public OrderDAL(OrderContext orderContext)
+        public OrderDAL(GameContext orderContext)
         {
             this.orderContext = orderContext;
         }

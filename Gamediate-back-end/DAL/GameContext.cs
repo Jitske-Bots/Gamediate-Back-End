@@ -11,6 +11,10 @@ namespace Gamediate_back_end.DAL
     {
         public GameContext(DbContextOptions options) : base(options) { }
         public virtual DbSet<GameDTO> Games { get; set; }
+        public virtual DbSet<OrderDTO> Orders { get; set; }
+        public virtual DbSet<OrderItemDTO> OrderItems { get; set; }
+
+
 
     }
 }

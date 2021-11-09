@@ -14,7 +14,7 @@ namespace Gamediate_back_end.Models
         public int ID { get; }
         public int AccountID { get; }
         public DateTime OrderDate { get; set; }
-        public Decimal TotalAmount { get; set; }
+        public decimal TotalAmount { get; set; }
 
         public Order()
         {
