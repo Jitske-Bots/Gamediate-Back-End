@@ -7,59 +7,49 @@ using Gamediate_back_end.BLL;
 using Gamediate_back_end.Models;
 using System.Text.Json;
 using Microsoft.AspNetCore.Http;
+using System.Text.Json.Serialization;
+using Gamediate_back_end.ViewModels;
+using Microsoft.AspNetCore.Cors;
 
 namespace Gamediate_back_end.Controllers
 {
-    [Route("order")]
+    [Route("cart")]
     [ApiController]
     public class OrderController : ControllerBase
     {
         private readonly OrderBLL orderBLL;
-        
-        public OrderController(OrderBLL orderBLL)
+        private readonly OrderItemBLL orderItemBLL;
+        private int orderID;
+        public OrderController(OrderBLL orderBLL, OrderItemBLL orderItemBLL)
         {
             this.orderBLL = orderBLL;
+            this.orderItemBLL = orderItemBLL;
         }
 
-        /// <summary>
-        /// this method will get the gameID and the price from the added game
-        /// get the list
-        /// and add a dictionary to the list
-        /// </summary>
-        /// <param name="order"></param>
-        /// <returns></returns>
+        //adding the order
+        //then adding OrderItems, with the orderID
+        //needs to get params: Order and OrderItem
+        [Route("order")]
         [HttpPost]
-        public async Task<IActionResult> AddOrderItem([FromBody]int gameID, int price)
+        public async Task<IActionResult> AddOrder([FromBody] Order order)
         {
-            List<Dictionary<string, int>> shoppingCart = this.GetShoppingCart();
-            shoppingCart.Add(
-            new Dictionary<string, int>() {
-                    { "gameID", gameID },
-                    { "price", price },
-            });
+            //Order order = new Order(accountID, orderDate, totalAmount);
+            //Order _order = new Order(order.AccountID, DateTime.Now, order.TotalAmount);
+            order.OrderDate = DateTime.Now;
+            this.orderID = orderBLL.Add(order);
+            return Ok(order);
 
-            //create new cookie
-            //cookies are saved for 1 hour
-            //append the shoppingcart to the cookie
-            CookieOptions option = new CookieOptions();
-            option.Expires = DateTime.Now.AddHours(1);
-            Response.Cookies.Append("shoppingCart", JsonSerializer.Serialize(shoppingCart), option);
-
-            return Ok();
         }
-
-        private List<Dictionary<string, int>> GetShoppingCart()
+        [Route("orderItems")]
+        [HttpPost]
+        public async Task<IActionResult> AddOrderItems([FromBody] OrderItem[] orderItems)
         {
-            //Dictionary is a generic collection which is generally used to store key/value pairs.
-            string value = Request.Cookies["shoppingCart"];
-            if (value != null)
+            foreach(var item in orderItems)
             {
-                return JsonSerializer.Deserialize<List<Dictionary<string, int>>>(value);
+                item.OrderID = this.orderID;
+                orderItemBLL.Add(item); 
             }
-            else
-            {
-                return new List<Dictionary<string, int>>();
-            }
+            return Ok(orderItems);
         }
     }
 }

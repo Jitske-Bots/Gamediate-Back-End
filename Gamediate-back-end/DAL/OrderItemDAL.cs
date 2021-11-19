@@ -17,11 +17,12 @@ namespace Gamediate_back_end.DAL
         public void Add(OrderItemDTO orderItemDTO)
         {
             orderItemContext.Add(orderItemDTO);
+            orderItemContext.SaveChanges();
         }
 
-        public IEnumerable<OrderItemDTO> GetAll()
+        public IEnumerable<OrderItemDTO> GetAll(int orderID)
         {
-            return orderItemContext.OrderItems;
+            return orderItemContext.OrderItems.Where(orderItem => orderItem.OrderID == orderID);
         }
     }
 }

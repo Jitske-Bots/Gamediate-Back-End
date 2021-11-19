@@ -14,13 +14,16 @@ namespace Gamediate_back_end.DAL
         {
             this.orderContext = orderContext;
         }
-        public void Add(OrderDTO orderDTO)
+        public int Add(OrderDTO orderDTO)
         {
             orderContext.Orders.Add(orderDTO);
+            orderContext.SaveChanges();
+            int orderID = orderDTO.ID;
+            return orderID;
         }
-        public IEnumerable<OrderDTO> GetAll()
+        public IEnumerable<OrderDTO> GetAll(int accountID)
         {
-            throw new NotImplementedException();
+            return orderContext.Orders.Where(order => order.AccountID == accountID);
         }
     }
 }

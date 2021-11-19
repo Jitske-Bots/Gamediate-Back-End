@@ -16,20 +16,19 @@ namespace Gamediate_back_end.BLL
         {
             this.iOrderRepo = iOrderRepo;
         }
-        public IEnumerable<Order> GetAll()
+        public IEnumerable<Order> GetAll(int accountID)
         {
             List<Order> orders = new List<Order>();
-            foreach(var dtoOrder in iOrderRepo.GetAll())
+            foreach(var dtoOrder in iOrderRepo.GetAll(accountID))
             {
                 orders.Add(new Order(dtoOrder));
             }
             return orders;
         }
-        public void Add(Order order)
+        public int Add(Order order)
         {
-            iOrderRepo.Add(new OrderDTO
+            return iOrderRepo.Add(new OrderDTO
             {
-                ID = order.ID,
                 AccountID = order.AccountID,
                 OrderDate = order.OrderDate,
                 TotalAmount = order.TotalAmount

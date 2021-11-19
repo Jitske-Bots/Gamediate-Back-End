@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using Gamediate_back_end.DAL;
 using Microsoft.EntityFrameworkCore;
 using Gamediate_back_end.BLL;
+using Newtonsoft;
 
 namespace Gamediate_back_end
 {
@@ -34,6 +35,7 @@ namespace Gamediate_back_end
                 });
             });
             services.AddControllers();
+
             services.AddDbContext<GameContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("Default"));
@@ -41,6 +43,10 @@ namespace Gamediate_back_end
             //addScoped creates an instance
             services.AddScoped<IGameDAL, GameDAL>();
             services.AddScoped<GameBLL>();
+            services.AddScoped<IOrderDAL, OrderDAL>();
+            services.AddScoped<OrderBLL>();
+            services.AddScoped<IOrderItemDAL, OrderItemDAL>();
+            services.AddScoped<OrderItemBLL>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }
 
@@ -51,7 +57,6 @@ namespace Gamediate_back_end
             {
                 app.UseDeveloperExceptionPage();
             }
-
             app.UseHttpsRedirection();
 
             app.UseRouting();
