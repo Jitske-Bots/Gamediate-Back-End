@@ -18,27 +18,21 @@ namespace Gamediate_back_end.BLL
         public IEnumerable<OrderItem> GetAll(int orderID)
         {
             List<OrderItem> orders = new List<OrderItem>();
-            foreach(OrderItemDTO orderItemDTO in iOrderItemRepo.GetAll(orderID))
+            foreach(OrderItem orderItem in iOrderItemRepo.GetAll(orderID))
             {
                 orders.Add(new OrderItem
                 {
-                    ID = orderItemDTO.ID,
-                    OrderID = orderItemDTO.OrderID,
-                    GameID = orderItemDTO.GameID,
-                    Price = orderItemDTO.Price
+                    ID = orderItem.ID,
+                    OrderID = orderItem.OrderID,
+                    GameID = orderItem.GameID,
+                    Price = orderItem.Price
                 });
             }
             return orders;
         }
         public void Add(OrderItem orderItem)
         {
-            iOrderItemRepo.Add(new OrderItemDTO
-            {
-                ID = orderItem.ID,
-                OrderID = orderItem.ID,
-                GameID = orderItem.GameID,
-                Price = orderItem.Price
-            });
+            iOrderItemRepo.Add(orderItem);
         }
     }
 }

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Gamediate_back_end.Models;
 
 namespace Gamediate_back_end.DAL
 {
@@ -14,13 +15,13 @@ namespace Gamediate_back_end.DAL
             this.orderItemContext = orderItemContext;
         }
 
-        public void Add(OrderItemDTO orderItemDTO)
+        public void Add(OrderItem orderItemDTO)
         {
             orderItemContext.Add(orderItemDTO);
             orderItemContext.SaveChanges();
         }
 
-        public IEnumerable<OrderItemDTO> GetAll(int orderID)
+        public IEnumerable<OrderItem> GetAll(int orderID)
         {
             return orderItemContext.OrderItems.Where(orderItem => orderItem.OrderID == orderID);
         }

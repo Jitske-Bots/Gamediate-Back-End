@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Gamediate_back_end.DTOS;
+using Microsoft.EntityFrameworkCore;
+using Gamediate_back_end.Models;
 
 namespace Gamediate_back_end.DAL
 {
@@ -14,16 +16,17 @@ namespace Gamediate_back_end.DAL
         {
             this.orderContext = orderContext;
         }
-        public int Add(OrderDTO orderDTO)
+        public int Add(Order order)
         {
-            orderContext.Orders.Add(orderDTO);
+            orderContext.Orders.Add(order);
             orderContext.SaveChanges();
-            int orderID = orderDTO.ID;
+            int orderID = order.ID;
             return orderID;
         }
-        public IEnumerable<OrderDTO> GetAll(int accountID)
+        public IEnumerable<Order> GetAll(int accountID)
         {
-            return orderContext.Orders.Where(order => order.AccountID == accountID);
+            return orderContext.Orders.Where(order => order.AccountID == accountID)
+                .Include(o => o.orderItems).ToList();
         }
     }
 }

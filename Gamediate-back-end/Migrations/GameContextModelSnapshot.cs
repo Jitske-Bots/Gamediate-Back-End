@@ -55,7 +55,7 @@ namespace Gamediate_back_end.Migrations
                     b.ToTable("Games");
                 });
 
-            modelBuilder.Entity("Gamediate_back_end.DTOS.OrderDTO", b =>
+            modelBuilder.Entity("Gamediate_back_end.Models.Order", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -76,7 +76,7 @@ namespace Gamediate_back_end.Migrations
                     b.ToTable("Orders");
                 });
 
-            modelBuilder.Entity("Gamediate_back_end.DTOS.OrderItemDTO", b =>
+            modelBuilder.Entity("Gamediate_back_end.Models.OrderItem", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -94,7 +94,23 @@ namespace Gamediate_back_end.Migrations
 
                     b.HasKey("ID");
 
+                    b.HasIndex("OrderID");
+
                     b.ToTable("OrderItems");
+                });
+
+            modelBuilder.Entity("Gamediate_back_end.Models.OrderItem", b =>
+                {
+                    b.HasOne("Gamediate_back_end.Models.Order", null)
+                        .WithMany("orderItems")
+                        .HasForeignKey("OrderID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Gamediate_back_end.Models.Order", b =>
+                {
+                    b.Navigation("orderItems");
                 });
 #pragma warning restore 612, 618
         }

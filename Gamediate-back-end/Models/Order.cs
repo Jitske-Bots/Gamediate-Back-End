@@ -11,10 +11,12 @@ namespace Gamediate_back_end.Models
     {
         [Key]
         [Required]
-        public int ID { get; }
-        public int AccountID { get; }
+        public int ID { get; set; }
+        public int AccountID { get; set; }
         public DateTime OrderDate { get; set; }
         public decimal TotalAmount { get; set; }
+        public virtual ICollection<OrderItem> orderItems { get; set; }
+
 
         public Order()
         {

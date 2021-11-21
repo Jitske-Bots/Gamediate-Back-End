@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Gamediate_back_end.DTOS;
+using Gamediate_back_end.Models;
 
 namespace Gamediate_back_end.DAL
 {
@@ -11,8 +12,8 @@ namespace Gamediate_back_end.DAL
     {
         public GameContext(DbContextOptions options) : base(options) { }
         public virtual DbSet<GameDTO> Games { get; set; }
-        public virtual DbSet<OrderDTO> Orders { get; set; }
-        public virtual DbSet<OrderItemDTO> OrderItems { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
+        public virtual DbSet<OrderItem> OrderItems { get; set; }
 
 
 

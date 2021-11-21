@@ -19,7 +19,6 @@ namespace Gamediate_back_end.Controllers
     {
         private readonly OrderBLL orderBLL;
         private readonly OrderItemBLL orderItemBLL;
-        private int orderID;
         public OrderController(OrderBLL orderBLL, OrderItemBLL orderItemBLL)
         {
             this.orderBLL = orderBLL;
@@ -33,23 +32,17 @@ namespace Gamediate_back_end.Controllers
         [HttpPost]
         public async Task<IActionResult> AddOrder([FromBody] Order order)
         {
-            //Order order = new Order(accountID, orderDate, totalAmount);
-            //Order _order = new Order(order.AccountID, DateTime.Now, order.TotalAmount);
+            int orderID = 0;
             order.OrderDate = DateTime.Now;
-            this.orderID = orderBLL.Add(order);
+            orderID = orderBLL.Add(order);
+            foreach(var item in order.orderItems)
+            {
+                item.OrderID = orderID;
+                orderItemBLL.Add(item);
+
+            }
             return Ok(order);
 
-        }
-        [Route("orderItems")]
-        [HttpPost]
-        public async Task<IActionResult> AddOrderItems([FromBody] OrderItem[] orderItems)
-        {
-            foreach(var item in orderItems)
-            {
-                item.OrderID = this.orderID;
-                orderItemBLL.Add(item); 
-            }
-            return Ok(orderItems);
         }
     }
 }
