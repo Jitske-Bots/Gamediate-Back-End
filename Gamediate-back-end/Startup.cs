@@ -47,6 +47,8 @@ namespace Gamediate_back_end
             services.AddScoped<OrderBLL>();
             services.AddScoped<IOrderItemDAL, OrderItemDAL>();
             services.AddScoped<OrderItemBLL>();
+            services.AddScoped<IAccountDAL, AccountDAL>();
+            services.AddScoped<AccountBLL>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }
 

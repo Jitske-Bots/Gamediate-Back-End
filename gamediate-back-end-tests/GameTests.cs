@@ -4,11 +4,13 @@ using Gamediate_back_end.BLL;
 namespace gamediate_back_end_tests
 {
     [TestClass]
-    public class UnitTest1
+    public class GameTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void GetGames()
         {
+
+
         }
     }
 }

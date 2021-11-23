@@ -14,8 +14,7 @@ namespace Gamediate_back_end.DAL
         public virtual DbSet<GameDTO> Games { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<OrderItem> OrderItems { get; set; }
-
-
+        public virtual DbSet<Account> Accounts { get; set; }
 
     }
 }
