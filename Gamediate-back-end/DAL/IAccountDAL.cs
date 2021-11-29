@@ -10,6 +10,7 @@ namespace Gamediate_back_end.DAL
     {
         public Account AddAccount(Account account);
         public Account GetAccount(Account account);
+        public Account GetAccountByEmail(string email);
 
     }
 }

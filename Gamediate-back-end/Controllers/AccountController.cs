@@ -26,10 +26,18 @@ namespace Gamediate_back_end.Controllers
         [Route("login")]
         public async Task<ActionResult<Account>> Login([FromBody] Account account)
         {
-            account = accountBLL.GetAccount(account);
-            if (account != null)
+            Account _account = accountBLL.GetAccount(account);
+            if (_account != null)
             {
-                return Ok(account);
+                if (account.Password == _account.Password)
+                {
+                    return Ok(_account);
+
+                }
+                else
+                {
+                    return StatusCode(404, "Wrong password");
+                }
             }
             return StatusCode(404, "User doesn't exist");
 
@@ -41,10 +49,19 @@ namespace Gamediate_back_end.Controllers
             if (account.GetType().GetProperties().Select(x => x.GetValue(account)).Any(value => value != null))
             {
                 accountBLL.AddAccount(account);
-                return CreatedAtAction("CreateUser", account);
+                return CreatedAtAction("Signup", account);
             }
             return StatusCode(404, "Not all fields are filled in");
         }
+        [HttpGet]
+        [Route("get")]
+        public IActionResult GetAccount([FromBody] Account account)
+        {
+            Account _account = accountBLL.GetAccount(account);
+            return Ok(_account);
+        }
+
+
     }
 
 }

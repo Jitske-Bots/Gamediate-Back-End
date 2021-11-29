@@ -23,5 +23,9 @@ namespace Gamediate_back_end.BLL
         {
             return iAccountDAL.GetAccount(account);
         }
+        public Account GetAccountByEmail(string email)
+        {
+            return iAccountDAL.GetAccountByEmail(email);
+        }
     }
 }
