@@ -21,6 +21,23 @@ namespace Gamediate_back_end.DAL
             return account;
         }
 
+        public Account EditAccount(Account account)
+        {
+            Account result = accountContext.Accounts.SingleOrDefault(a => a.ID == account.ID);
+            if (result != null)
+            {
+                result.FirstName = account.FirstName;
+                result.LastName = account.LastName;
+                result.Address = account.Address;
+                result.HouseNumber = account.HouseNumber;
+                result.PostalCode = account.PostalCode;
+                result.City = account.City;
+                result.PhoneNumber = account.PhoneNumber;
+                accountContext.SaveChanges();
+            }
+            return result;
+        }
+
         public Account GetAccount(Account account)
         {
             List<Account> accounts = accountContext.Accounts.ToList();

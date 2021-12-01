@@ -60,6 +60,14 @@ namespace Gamediate_back_end.Controllers
             Account _account = accountBLL.GetAccount(account);
             return Ok(_account);
         }
+        [HttpPost]
+        [Route("edit")]
+        public async Task<ActionResult<Account>> Edit([FromBody] Account account)
+        {
+            Account editedAccount = accountBLL.EditAccount(account);
+            return Ok(editedAccount);
+        }
+
 
 
     }
