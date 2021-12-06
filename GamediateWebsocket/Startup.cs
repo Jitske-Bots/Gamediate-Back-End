@@ -1,19 +1,18 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Gamediate_back_end.DAL;
-using Microsoft.EntityFrameworkCore;
-using Gamediate_back_end.BLL;
-using Newtonsoft;
+using GamediateWebsocket.Hubs;
 
-namespace Gamediate_back_end
+namespace GamediateWebsocket
 {
     public class Startup
     {
@@ -29,29 +28,15 @@ namespace Gamediate_back_end
         {
             services.AddCors(options =>
             {
-                options.AddPolicy("CorsDevelopment", builder =>
-                {
-                    builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
-                });
+                options.AddPolicy("CorsPolicy", builder => builder
+                .WithOrigins("http://localhost:4200") // the Angular app url
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .AllowCredentials());
             });
             services.AddControllers();
-
-            services.AddDbContext<GameContext>(options =>
-            {
-                options.UseSqlServer(Configuration.GetConnectionString("Default"));
-            });
-            //addScoped creates an instance
             services.AddSignalR();
 
-            services.AddScoped<IGameDAL, GameDAL>();
-            services.AddScoped<GameBLL>();
-            services.AddScoped<IOrderDAL, OrderDAL>();
-            services.AddScoped<OrderBLL>();
-            services.AddScoped<IOrderItemDAL, OrderItemDAL>();
-            services.AddScoped<OrderItemBLL>();
-            services.AddScoped<IAccountDAL, AccountDAL>();
-            services.AddScoped<AccountBLL>();
-            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -65,26 +50,16 @@ namespace Gamediate_back_end
             app.UseHttpsRedirection();
 
             app.UseRouting();
-            app.UseCors("CorsDevelopment");
-            app.UseCors(options => options.AllowAnyOrigin());
+            app.UseCors("CorsPolicy");
+
 
             app.UseAuthorization();
-
-            app.UseWebSockets(new WebSocketOptions
-            {
-                KeepAliveInterval = TimeSpan.FromSeconds(120),
-            });
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<SignalrDemoClass>("/signalrdemohub");
             });
-
-
-
-
-
-
         }
     }
 }

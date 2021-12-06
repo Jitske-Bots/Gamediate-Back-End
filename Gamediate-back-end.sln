@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.31129.286
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gamediate-back-end", "Gamediate-back-end\Gamediate-back-end.csproj", "{7796B5EF-2147-4CD1-9493-0F3EDA537FD8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gamediate-back-end-tests", "gamediate-back-end-tests\gamediate-back-end-tests.csproj", "{D0AE0FDD-2131-42C1-919C-1C59A3B6F3EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gamediate-back-end-tests", "gamediate-back-end-tests\gamediate-back-end-tests.csproj", "{D0AE0FDD-2131-42C1-919C-1C59A3B6F3EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GamediateWebsocket", "GamediateWebsocket\GamediateWebsocket.csproj", "{AC978B91-12FC-4758-AAB2-7971D44437BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{D0AE0FDD-2131-42C1-919C-1C59A3B6F3EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0AE0FDD-2131-42C1-919C-1C59A3B6F3EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0AE0FDD-2131-42C1-919C-1C59A3B6F3EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC978B91-12FC-4758-AAB2-7971D44437BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC978B91-12FC-4758-AAB2-7971D44437BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC978B91-12FC-4758-AAB2-7971D44437BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC978B91-12FC-4758-AAB2-7971D44437BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

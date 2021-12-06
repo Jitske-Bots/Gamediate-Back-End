@@ -57,5 +57,17 @@ namespace Gamediate_back_end.DAL
         {
             return accountContext.Accounts.SingleOrDefault(acc => acc.Email == email);
         }
+
+        public bool RemoveAccount(Account account)
+        {
+            foreach(Account acc in accountContext.Accounts)
+            {
+                if (account.ID == acc.ID)
+                {
+                    accountContext.Remove(acc);
+                }
+            }
+            return true;
+        }
     }
 }

@@ -12,6 +12,7 @@ namespace Gamediate_back_end.DAL
         public Account GetAccount(Account account);
         public Account GetAccountByEmail(string email);
         public Account EditAccount(Account account);
+        public bool RemoveAccount(Account account);
 
     }
 }
