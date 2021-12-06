@@ -15,6 +15,7 @@ namespace Gamediate_back_end.DAL
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<OrderItem> OrderItems { get; set; }
         public virtual DbSet<Account> Accounts { get; set; }
+        public virtual DbSet<WishlistItem> WishlistItems { get; set; }
 
     }
 }

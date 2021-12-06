@@ -50,7 +50,6 @@ namespace Gamediate_back_end.DAL
                 }
             }
             return _account;
-            //return accountContext.Accounts.SingleOrDefault(q => q.Email == account.Email);
         }
 
         public Account GetAccountByEmail(string email)

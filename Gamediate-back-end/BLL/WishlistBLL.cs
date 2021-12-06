@@ -14,5 +14,13 @@ namespace Gamediate_back_end.BLL
         {
             this.iWishlist = iWishlist;
         }
+        public WishlistItem Add(WishlistItem wishlistItem)
+        {
+            return this.iWishlist.Add(wishlistItem);
+        }
+        public List<WishlistItem> GetAll(int accountID)
+        {
+            return this.iWishlist.GetAll(accountID);
+        }
     }
 }

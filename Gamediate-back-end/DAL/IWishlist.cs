@@ -8,6 +8,8 @@ namespace Gamediate_back_end.DAL
 {
     public interface IWishlist
     {
-        public WishlistItem Add();
+        public WishlistItem Add(WishlistItem wishlistItem);
+        public List<WishlistItem> GetAll(int accountID);
+
     }
 }

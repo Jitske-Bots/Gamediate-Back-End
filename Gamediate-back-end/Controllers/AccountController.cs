@@ -48,8 +48,14 @@ namespace Gamediate_back_end.Controllers
         {
             if (account.GetType().GetProperties().Select(x => x.GetValue(account)).Any(value => value != null))
             {
-                accountBLL.AddAccount(account);
-                return CreatedAtAction("Signup", account);
+                if(accountBLL.AddAccount(account) == null)
+                {
+                    return StatusCode(405, "Email already in use!");
+                }
+                else
+                {
+                    return CreatedAtAction("Signup", account);
+                }
             }
             return StatusCode(404, "Not all fields are filled in");
         }

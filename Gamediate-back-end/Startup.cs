@@ -45,12 +45,19 @@ namespace Gamediate_back_end
 
             services.AddScoped<IGameDAL, GameDAL>();
             services.AddScoped<GameBLL>();
+
             services.AddScoped<IOrderDAL, OrderDAL>();
             services.AddScoped<OrderBLL>();
+
             services.AddScoped<IOrderItemDAL, OrderItemDAL>();
             services.AddScoped<OrderItemBLL>();
+
             services.AddScoped<IAccountDAL, AccountDAL>();
             services.AddScoped<AccountBLL>();
+
+            services.AddScoped<IWishlist, WishlistDAL>();
+            services.AddScoped<WishlistBLL>();
+
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }
 
