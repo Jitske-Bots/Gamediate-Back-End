@@ -7,6 +7,9 @@ using GamediateWebsocket.Interfaces;
 
 namespace GamediateWebsocket.Hubs
 {
+    //a hub gets used to communicatie between client and server (similar to a controller)
+    //signalR allows two way communication
+    //inherits from the interface
     public class SignalrDemoClass : Hub<ISignalrDemoHub>
     {
         public void Hello()

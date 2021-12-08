@@ -25,5 +25,22 @@ namespace Gamediate_back_end.BLL
             }
             return allGames;
         }
+        public List<Game> GetFavorite(List<int> gameIDS)
+        {
+            List<Game> favoriteGames = new List<Game>();
+            foreach(int id in gameIDS)
+            {
+                foreach (GameDTO gameDTO in iGameBLL.GetAll())
+                {
+                    if(id == gameDTO.ID)
+                    {
+                        favoriteGames.Add(new Game(gameDTO));
+                        break;
+                    }
+                }
+            }
+            return favoriteGames;
+
+        }
     }
 }

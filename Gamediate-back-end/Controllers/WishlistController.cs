@@ -25,10 +25,11 @@ namespace Gamediate_back_end.Controllers
         {
             return Ok(wishlistBLL.Add(item));
         }
-        [HttpGet]
+        [HttpPost]
         [Route("items")]
         public IActionResult GetAll([FromBody] int accountID)
         {
+            List<WishlistItem> items = wishlistBLL.GetAll(accountID);
             return Ok(wishlistBLL.GetAll(accountID));
         }
 

@@ -37,5 +37,12 @@ namespace Gamediate_back_end.Controllers
             return Ok(imapper.Map<ICollection<GameDTO>>(games));
 
         }
+        [HttpPost]
+        [Route("getFavorite")]
+        public IActionResult GetFavoriteGames([FromBody] List<int> gameIDS)
+        {
+            var favGames = gameBLL.GetFavorite(gameIDS);
+            return Ok(imapper.Map<ICollection<GameDTO>>(favGames));
+        }
     }
 }
