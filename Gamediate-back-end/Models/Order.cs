@@ -15,6 +15,10 @@ namespace Gamediate_back_end.Models
         public int AccountID { get; set; }
         public DateTime OrderDate { get; set; }
         public decimal TotalAmount { get; set; }
+
+        /// <summary>
+        /// one to many relationship. 
+        /// </summary>
         public virtual ICollection<OrderItem> orderItems { get; set; }
 
 

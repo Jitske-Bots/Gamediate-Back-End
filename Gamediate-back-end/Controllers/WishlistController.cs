@@ -32,6 +32,12 @@ namespace Gamediate_back_end.Controllers
             List<WishlistItem> items = wishlistBLL.GetAll(accountID);
             return Ok(wishlistBLL.GetAll(accountID));
         }
+        [HttpPost]
+        [Route("remove")]
+        public IActionResult Remove([FromBody] int id)
+        {
+            return Ok(wishlistBLL.Remove(id));
+        }
 
 
     }

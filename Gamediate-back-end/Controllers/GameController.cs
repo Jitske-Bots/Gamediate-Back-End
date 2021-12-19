@@ -18,12 +18,10 @@ namespace Gamediate_back_end.Controllers
     [ApiController]
     public class GameController : ControllerBase
     {
-        private readonly IMapper imapper;
         private readonly GameBLL gameBLL;
-        public GameController(IMapper imapper, GameBLL gameBLL)
+        public GameController(GameBLL gameBLL)
         {
             this.gameBLL = gameBLL;
-            this.imapper = imapper;
         }
 
         [HttpGet]
@@ -34,7 +32,7 @@ namespace Gamediate_back_end.Controllers
         public IActionResult GetAll()
         {
             var games = gameBLL.GetAll();
-            return Ok(imapper.Map<ICollection<GameDTO>>(games));
+            return Ok(games);
 
         }
         [HttpPost]
@@ -42,7 +40,7 @@ namespace Gamediate_back_end.Controllers
         public IActionResult GetFavoriteGames([FromBody] List<int> gameIDS)
         {
             var favGames = gameBLL.GetFavorite(gameIDS);
-            return Ok(imapper.Map<ICollection<GameDTO>>(favGames));
+            return Ok(favGames);
         }
     }
 }

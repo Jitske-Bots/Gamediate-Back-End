@@ -32,5 +32,21 @@ namespace Gamediate_back_end.DAL
             }
             return wishlistItems;
         }
+
+        public bool Remove(int id)
+        {
+            bool removed = false;
+            foreach(WishlistItem item in wishlistContext.WishlistItems)
+            {
+                if(item.ID == id)
+                {
+                    wishlistContext.WishlistItems.Remove(item);
+                    removed = true;
+                    break;
+                }
+            }
+            wishlistContext.SaveChanges();
+            return removed;
+        }
     }
 }

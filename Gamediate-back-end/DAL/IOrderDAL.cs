@@ -8,8 +8,8 @@ namespace Gamediate_back_end.DAL
 {
     public interface IOrderDAL
     {
-        IEnumerable<Order> GetAll(int accountID);
-        int Add(Order order);
+        public IEnumerable<Order> GetAll(int accountID);
+        public int Add(Order order);
         
     }
 }

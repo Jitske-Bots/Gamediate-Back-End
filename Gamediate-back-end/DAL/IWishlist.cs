@@ -10,6 +10,7 @@ namespace Gamediate_back_end.DAL
     {
         public WishlistItem Add(WishlistItem wishlistItem);
         public List<WishlistItem> GetAll(int accountID);
+        public bool Remove(int id);
 
     }
 }

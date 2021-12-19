@@ -13,12 +13,5 @@ namespace Gamediate_back_end.ViewModels
         public int GameID { get; set; }
         public decimal Price { get; set; }
 
-        public OrderItemViewModel(OrderItem orderItem)
-        {
-            this.ID = orderItem.ID;
-            this.OrderID = orderItem.OrderID;
-            this.GameID = orderItem.GameID;
-            this.Price = orderItem.Price;
-        }
     }
 }

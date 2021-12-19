@@ -22,5 +22,10 @@ namespace Gamediate_back_end.BLL
         {
             return this.iWishlist.GetAll(accountID);
         }
+        public bool Remove(int id)
+        {
+            this.iWishlist.Remove(id);
+            return true;
+        }
     }
 }

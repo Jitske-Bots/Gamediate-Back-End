@@ -46,9 +46,13 @@ namespace Gamediate_back_end.Controllers
         [Route("signup")]
         public async Task<ActionResult<Account>> Signup([FromBody] Account account)
         {
-            if (account.GetType().GetProperties().Select(x => x.GetValue(account)).Any(value => value != null))
+            bool empty = account.GetType().GetProperties()
+                        .Where(pi => pi.PropertyType == typeof(string))
+                        .Select(pi => (string)pi.GetValue(account))
+                        .Any(value => string.IsNullOrEmpty(value));
+            if (!empty)
             {
-                if(accountBLL.AddAccount(account) == null)
+                if(accountBLL.GetAccount(account) != null)
                 {
                     return StatusCode(405, "Email already in use!");
                 }
@@ -73,7 +77,18 @@ namespace Gamediate_back_end.Controllers
             Account editedAccount = accountBLL.EditAccount(account);
             return Ok(editedAccount);
         }
+        private bool CheckIfNull(string property)
+        {
+            if(property == "")
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
 
+        }
 
 
     }

@@ -10,7 +10,6 @@ namespace gamediate_back_end_tests
         public void GetGames()
         {
 
-
         }
     }
 }

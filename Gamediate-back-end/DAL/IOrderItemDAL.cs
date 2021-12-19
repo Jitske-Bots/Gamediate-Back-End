@@ -9,7 +9,7 @@ namespace Gamediate_back_end.DAL
 {
     public interface IOrderItemDAL
     {
-        IEnumerable<OrderItem> GetAll(int orderID);
-        void Add(OrderItem orderItemDTO);
+        public IEnumerable<OrderItem> GetAll(int orderID);
+        public void Add(OrderItem orderItemDTO);
     }
 }

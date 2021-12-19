@@ -18,4 +18,6 @@ namespace Gamediate_back_end.DAL
         public virtual DbSet<WishlistItem> WishlistItems { get; set; }
 
     }
+
 }
+
