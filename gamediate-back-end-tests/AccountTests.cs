@@ -62,5 +62,14 @@ namespace gamediate_back_end_tests
             Assert.AreNotEqual(houseNumberBeforeEdit, accountBLL.GetAccount(editedAccount).HouseNumber);
 
         }
+        [TestMethod]
+        public void GetAccountByEmail()
+        {
+            AccountTestDAL accountDAL = new AccountTestDAL();
+            AccountBLL accountBLL = new AccountBLL(accountDAL);
+
+            Account searchedAccount = accountBLL.GetAccountByEmail("sjanssen@gmail.com");
+            Assert.IsNotNull(searchedAccount);
+        }
     }
 }

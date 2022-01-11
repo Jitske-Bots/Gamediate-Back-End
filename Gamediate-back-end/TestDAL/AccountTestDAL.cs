@@ -15,6 +15,34 @@ namespace Gamediate_back_end.TestDAL
         {
             this.Accounts = new List<Account>();
             this.ID = 1;
+            this.AddMockData();
+        }
+        private  void AddMockData()
+        {
+            Account account = new Account();
+            account.FirstName = "Bob";
+            account.LastName = "lastname";
+            account.Address = "somestreet";
+            account.HouseNumber = "24";
+            account.PostalCode = "9876WE";
+            account.City = "Rotterdam";
+            account.PhoneNumber = "0634297541";
+            account.Email = "blastname@gmail.com";
+            account.Password = "strongpassword";
+
+            Account account2 = new Account();
+            account.FirstName = "Sarah";
+            account.LastName = "Janssen";
+            account.Address = "somewhere";
+            account.HouseNumber = "56";
+            account.PostalCode = "3457SI";
+            account.City = "Amsterdam";
+            account.PhoneNumber = "0623418643";
+            account.Email = "sjanssen@gmail.com";
+            account.Password = "verystrongpassword";
+
+            this.Accounts.Add(account);
+            this.Accounts.Add(account2);
         }
         public Account AddAccount(Account account)
         {
@@ -63,7 +91,14 @@ namespace Gamediate_back_end.TestDAL
 
         public Account GetAccountByEmail(string email)
         {
-            throw new NotImplementedException();
+            foreach(Account account in this.Accounts)
+            {
+                if(account.Email == email)
+                {
+                    return account;
+                }
+            }
+            return null;
         }
 
         public bool RemoveAccount(Account account)
