@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>Gamediate_back_end</RootNamespace>
     <UserSecretsId>53339ddd-4dd9-4df3-b434-739729d3e579</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
