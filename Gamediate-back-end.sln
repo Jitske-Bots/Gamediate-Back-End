@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gamediate-back-end-tests", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GamediateWebsocket", "GamediateWebsocket\GamediateWebsocket.csproj", "{AC978B91-12FC-4758-AAB2-7971D44437BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PublicChat", "PublicChat\PublicChat.csproj", "{41746B96-E65A-47A7-A2EA-31AFEC2328D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PublicChat", "PublicChat\PublicChat.csproj", "{41746B96-E65A-47A7-A2EA-31AFEC2328D9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
