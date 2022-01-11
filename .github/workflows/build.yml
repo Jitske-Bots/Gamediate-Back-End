@@ -14,8 +14,8 @@ jobs:
       with:
         # Disabling shallow clone is recommended for improving relevancy of reporting
         fetch-depth: 0
-    - name: SonarScanner for .NET 6 with pull request decoration support
-      uses: highbyte/sonarscan-dotnet@v2.1.2
+    - name: SonarScanner for .NET 5 with pull request decoration support
+      uses: highbyte/sonarscan-dotnet@2.0
       with:
         # The key of the SonarQube project
         sonarProjectKey: Jitske-Bots_Gamediate-Back-End
