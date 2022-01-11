@@ -23,12 +23,45 @@ namespace Gamediate_back_end.TestDAL
         }
         private void AddMockData()
         {
-            Games.Add(new GameDTO(new Game(1, "game1", "action", "some action game", 
-                DateTime.Now, 59, "someimage", "dev", "pub")));
-            Games.Add(new GameDTO(new Game(2, "game2", "RPG", "some RPG game",
-                DateTime.Now, 30, "someimage", "dev", "pub")));
-            Games.Add(new GameDTO(new Game(3, "game3", "Platformer", "some platform game",
-                DateTime.Now, 10, "someimage", "dev", "pub")));
+            GameDTO game1 = new GameDTO
+            {
+                ID = 1,
+                Title = "game1",
+                Genre = "action",
+                Description = "some action game",
+                ReleaseDate = DateTime.Now,
+                Price = 59,
+                Image = "someimage",
+                Developer = "dev",
+                Publisher = "pub"
+            };
+            GameDTO game2 = new GameDTO
+            {
+                ID = 2,
+                Title = "game2",
+                Genre = "RPG",
+                Description = "some RPG game",
+                ReleaseDate = DateTime.Now,
+                Price = 39,
+                Image = "someimage",
+                Developer = "dev",
+                Publisher = "pub"
+            };
+            GameDTO game3 = new GameDTO
+            {
+                ID = 3,
+                Title = "game3",
+                Genre = "platformer",
+                Description = "some platformer game",
+                ReleaseDate = DateTime.Now,
+                Price = 10,
+                Image = "someimage",
+                Developer = "dev",
+                Publisher = "pub"
+            };
+            this.Games.Add(game1);
+            this.Games.Add(game2);
+            this.Games.Add(game3);
         }
     }
 }
