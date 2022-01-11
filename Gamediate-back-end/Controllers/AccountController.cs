@@ -52,12 +52,14 @@ namespace Gamediate_back_end.Controllers
                         .Any(value => string.IsNullOrEmpty(value));
             if (!empty)
             {
-                if(accountBLL.GetAccount(account) != null)
+                Account exists = accountBLL.GetAccount(account);
+                if(exists.ID != 0)
                 {
                     return StatusCode(405, "Email already in use!");
                 }
                 else
                 {
+                    accountBLL.AddAccount(account);
                     return CreatedAtAction("Signup", account);
                 }
             }
@@ -77,20 +79,6 @@ namespace Gamediate_back_end.Controllers
             Account editedAccount = accountBLL.EditAccount(account);
             return Ok(editedAccount);
         }
-        private bool CheckIfNull(string property)
-        {
-            if(property == "")
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-
-        }
-
-
     }
 
 }

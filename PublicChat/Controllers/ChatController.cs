@@ -20,7 +20,7 @@ namespace PublicChat.Controllers
             _hubContext = hubContext;
         }
 
-        [Route("send")]                                           //path looks like this: https://localhost:44379/chat/send
+        [Route("send")]   //path looks like this: https://localhost:44379/chat/send
         [HttpPost]
         public IActionResult SendRequest([FromBody] MessageDTO msg)
         {
