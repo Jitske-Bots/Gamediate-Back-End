@@ -21,7 +21,5 @@ namespace Gamediate_back_end.Models
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        //public virtual ICollection<WishlistItem> wishlistItems { get; set; }
-
     }
 }

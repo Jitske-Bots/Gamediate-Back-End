@@ -10,15 +10,15 @@ namespace Gamediate_back_end.BLL
 {
     public class OrderItemBLL
     {
-        private readonly IOrderItemDAL iOrderItemRepo;
+        private readonly IOrderItemDAL iOrderItemDAL;
         public OrderItemBLL(IOrderItemDAL iOrderItemRepo)
         {
-            this.iOrderItemRepo = iOrderItemRepo;
+            this.iOrderItemDAL = iOrderItemRepo;
         }
         public IEnumerable<OrderItem> GetAll(int orderID)
         {
             List<OrderItem> orders = new List<OrderItem>();
-            foreach(OrderItem orderItem in iOrderItemRepo.GetAll(orderID))
+            foreach(OrderItem orderItem in iOrderItemDAL.GetAll(orderID))
             {
                 orders.Add(new OrderItem
                 {
@@ -32,7 +32,7 @@ namespace Gamediate_back_end.BLL
         }
         public void Add(OrderItem orderItem)
         {
-            iOrderItemRepo.Add(orderItem);
+            iOrderItemDAL.Add(orderItem);
         }
     }
 }

@@ -10,15 +10,15 @@ namespace Gamediate_back_end.BLL
 {
     public class OrderBLL
     {
-        private readonly IOrderDAL iOrderRepo;
+        private readonly IOrderDAL iOrderDAL;
 
         public OrderBLL(IOrderDAL iOrderRepo)
         {
-            this.iOrderRepo = iOrderRepo;
+            this.iOrderDAL = iOrderRepo;
         }
         public IEnumerable<Order> GetAll(int accountID)
         {
-            return iOrderRepo.GetAll(accountID);
+            return iOrderDAL.GetAll(accountID);
         }
         public int Add(Order order)
         {
@@ -26,7 +26,7 @@ namespace Gamediate_back_end.BLL
             _order.AccountID = order.AccountID;
             _order.OrderDate = order.OrderDate;
             _order.TotalAmount = order.TotalAmount;
-            int orderID = iOrderRepo.Add(_order);
+            int orderID = iOrderDAL.Add(_order);
             return orderID;
 
 

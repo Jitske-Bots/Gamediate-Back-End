@@ -11,15 +11,15 @@ namespace Gamediate_back_end.BLL
 {
     public class GameBLL
     {
-        private readonly IGameDAL iGameBLL;
+        private readonly IGameDAL iGameDAL;
         public GameBLL(IGameDAL igameBLL)
         {
-            this.iGameBLL = igameBLL;
+            this.iGameDAL = igameBLL;
         }
         public IEnumerable<Game> GetAll()
         {
             List<Game> allGames = new List<Game>();
-            foreach(GameDTO gameDTO in iGameBLL.GetAll())
+            foreach(GameDTO gameDTO in iGameDAL.GetAll())
             {
                 allGames.Add(new Game(gameDTO));
             }
@@ -30,7 +30,7 @@ namespace Gamediate_back_end.BLL
             List<Game> favoriteGames = new List<Game>();
             foreach(int id in gameIDS)
             {
-                foreach (GameDTO gameDTO in iGameBLL.GetAll())
+                foreach (GameDTO gameDTO in iGameDAL.GetAll())
                 {
                     if(id == gameDTO.ID)
                     {
