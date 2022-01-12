@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using Gamediate_back_end.DAL;
 using Gamediate_back_end.BLL;
 using AutoMapper;
-using Gamediate_back_end.DTOS;
 using Gamediate_back_end.Models;
 using Microsoft.AspNetCore.Cors;
 

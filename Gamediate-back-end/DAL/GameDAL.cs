@@ -1,9 +1,9 @@
-﻿using Gamediate_back_end.DTOS;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Gamediate_back_end.Models;
 
 namespace Gamediate_back_end.DAL
 {
@@ -14,9 +14,9 @@ namespace Gamediate_back_end.DAL
         {
             this.gameContext = gameContext;
         }
-        public IEnumerable<GameDTO> GetAll()
+        public IEnumerable<Game> GetAll()
         {
-            IEnumerable<GameDTO> gameList = new List<GameDTO>();
+            IEnumerable<Game> gameList = new List<Game>();
             gameList = gameContext.Games;
 
             return gameList;

@@ -3,27 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Gamediate_back_end.DAL;
-using Gamediate_back_end.DTOS;
 using Gamediate_back_end.Models;
 
 namespace Gamediate_back_end.TestDAL
 {
     public class GameTestDAL : IGameDAL
     {
-        private List<GameDTO> Games;
+        private readonly List<Game> Games;
 
         public GameTestDAL()
         {
-            this.Games = new List<GameDTO>();
+            this.Games = new List<Game>();
             this.AddMockData();
         }
-        public IEnumerable<GameDTO> GetAll()
+        public IEnumerable<Game> GetAll()
         {
              return this.Games;
         }
         private void AddMockData()
         {
-            GameDTO game1 = new GameDTO
+            Game game1 = new()
             {
                 ID = 1,
                 Title = "game1",
@@ -35,7 +34,7 @@ namespace Gamediate_back_end.TestDAL
                 Developer = "dev",
                 Publisher = "pub"
             };
-            GameDTO game2 = new GameDTO
+            Game game2 = new()
             {
                 ID = 2,
                 Title = "game2",
@@ -47,7 +46,7 @@ namespace Gamediate_back_end.TestDAL
                 Developer = "dev",
                 Publisher = "pub"
             };
-            GameDTO game3 = new GameDTO
+            Game game3 = new()
             {
                 ID = 3,
                 Title = "game3",
